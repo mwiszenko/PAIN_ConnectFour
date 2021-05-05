@@ -201,7 +201,7 @@ bool Game::hasGameBeenDrawn(){
             }
         }
     }
-    return false;
+    return true;
 }
 
 void Game::settingsChanged(QStringList settings) {
