@@ -7,7 +7,7 @@
 class BoardPanel : public QGraphicsView
 {
 public:
-    BoardPanel(QWidget *parent) { };
+    BoardPanel(QWidget *) { };
     void resizeEvent(QResizeEvent *e);
 
 };

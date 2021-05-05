@@ -7,6 +7,7 @@
 
 Board::Board(int columns, int rows, QObject* parent)
 {
+    Q_UNUSED(parent);
     setup(columns, rows);
 }
 

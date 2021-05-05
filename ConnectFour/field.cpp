@@ -19,6 +19,8 @@ Field::Field(qreal width, qreal height, int column, int row) : player(0)
 
 void Field::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Q_UNUSED(option);
+    Q_UNUSED(widget);
     QPen borderPen;
     borderPen.setWidth(0);
     if(isInteractive && isAvailable) {
