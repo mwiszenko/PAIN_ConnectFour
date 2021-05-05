@@ -77,9 +77,9 @@ void MainWindow::processGameWon(int result) {
     if (result == 0) {
         gameFinishDialog->setLabel(QString("It's a draw..."));
     } else if (result == 1) {
-        gameFinishDialog->setLabel(QString(ui->labelPlayerOneName->text() + " has won!"));
+        gameFinishDialog->setLabel(QString(ui->labelPlayerOneName->text() + " won!"));
     } else if (result == 2) {
-        gameFinishDialog->setLabel(QString(ui->labelPlayerTwoName->text() + " has won!"));
+        gameFinishDialog->setLabel(QString(ui->labelPlayerTwoName->text() + " won!"));
     }
     gameFinishDialog->show();
 }

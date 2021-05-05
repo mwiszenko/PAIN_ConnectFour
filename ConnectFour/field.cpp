@@ -1,6 +1,7 @@
 #include "field.h"
 #include "constants.h"
 #include <QtGui>
+#include <QGraphicsSceneMouseEvent>
 
 Field::Field(qreal width, qreal height, int column, int row) : player(0)
 {
@@ -59,7 +60,7 @@ int Field::getPlayer() {
 
 void Field::mousePressEvent(QGraphicsSceneMouseEvent *e)
 {
-    if(isInteractive) {
+    if(isInteractive && e->button() == Qt::LeftButton) {
         isPressed = true;
         update();
     }
@@ -67,7 +68,7 @@ void Field::mousePressEvent(QGraphicsSceneMouseEvent *e)
 
 void Field::mouseReleaseEvent(QGraphicsSceneMouseEvent *e)
 {
-    if(isInteractive) {
+    if(isInteractive && e->button() == Qt::LeftButton) {
         isPressed = false;
         update();
         if(isAvailable) {
