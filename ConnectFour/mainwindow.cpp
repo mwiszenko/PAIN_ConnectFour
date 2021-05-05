@@ -23,10 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     connect(settings, &SettingsDialog::settingsChanged, game, &Game::settingsChanged);
     connect(settings, &SettingsDialog::settingsChanged, this, &MainWindow::settingsChanged);
 
-    ui->labelPlayerOneImage->setPixmap(QPixmap(":/img/red_circle.png"));
+    ui->labelPlayerOneImage->setPixmap(QPixmap(":/img/red_player.png"));
     ui->labelPlayerOneName->setText("Player 1");
 
-    ui->labelPlayerTwoImage->setPixmap(QPixmap(":/img/blue_circle.png"));
+    ui->labelPlayerTwoImage->setPixmap(QPixmap(":/img/blue_player.png"));
     ui->labelPlayerTwoName->setText("Player 2");
 }
 

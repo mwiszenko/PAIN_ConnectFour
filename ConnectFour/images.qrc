@@ -1,9 +1,11 @@
 <RCC>
     <qresource prefix="/">
-        <file>img/red_circle.png</file>
-        <file>img/blue_circle.png</file>
         <file>img/arrow_down.png</file>
         <file>img/arrow_up.png</file>
         <file>img/dash.png</file>
+        <file>img/red_block.png</file>
+        <file>img/blue_block.png</file>
+        <file>img/blue_player.png</file>
+        <file>img/red_player.png</file>
     </qresource>
 </RCC>

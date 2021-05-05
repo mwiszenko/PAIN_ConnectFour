@@ -40,10 +40,15 @@ void Game::processClick(int col, int row) {
     }
     borderPen.setWidth(0);
 
+    QGraphicsPixmapItem * block;
+    if(currentPlayer == 1) {
+        block = new QGraphicsPixmapItem(QPixmap(":/img/red_block.png").scaled(BLOCK_WIDTH, BLOCK_HEIGHT, Qt::KeepAspectRatio));
+    } else {
+        block = new QGraphicsPixmapItem(QPixmap(":/img/blue_block.png").scaled(BLOCK_WIDTH, BLOCK_HEIGHT, Qt::KeepAspectRatio));
+    }
+
     if(animationSpeed != INSTANT_ANIMATION_SPEED) {
-        QGraphicsEllipseItem *block = new QGraphicsEllipseItem((FIELD_WIDTH + FIELD_WIDTH_OFFSET) * col + (FIELD_WIDTH - BLOCK_WIDTH) / 2, (FIELD_WIDTH - BLOCK_WIDTH) / 2, BLOCK_WIDTH, BLOCK_HEIGHT);
-        block->setBrush(brush);
-        block->setPen(borderPen);
+        block->setPos((FIELD_WIDTH + FIELD_WIDTH_OFFSET) * col + (FIELD_WIDTH - BLOCK_WIDTH) / 2, (FIELD_WIDTH - BLOCK_WIDTH) / 2);
 
         QTimeLine *timer = new QTimeLine(animationSpeed * (row + 1));
         timer->setFrameRange(0, 100);
@@ -52,7 +57,7 @@ void Game::processClick(int col, int row) {
         animation->setItem(block);
         animation->setTimeLine(timer);
 
-        animation->setPosAt(1, QPointF(0, (FIELD_HEIGHT + FIELD_HEIGHT_OFFSET) * row));
+        animation->setPosAt(1, QPointF((FIELD_WIDTH + FIELD_WIDTH_OFFSET) * col + (FIELD_WIDTH - BLOCK_WIDTH) / 2, (FIELD_HEIGHT + FIELD_HEIGHT_OFFSET) * row + (FIELD_WIDTH - BLOCK_WIDTH) / 2));
 
         board->addItem(block);
 
@@ -65,9 +70,7 @@ void Game::processClick(int col, int row) {
         setFieldAvailability(col, row);
 
     } else {
-        QGraphicsEllipseItem *block = new QGraphicsEllipseItem((FIELD_WIDTH + FIELD_WIDTH_OFFSET) * col + (FIELD_WIDTH - BLOCK_WIDTH) / 2, (FIELD_HEIGHT + FIELD_HEIGHT_OFFSET) * row + (FIELD_WIDTH - BLOCK_WIDTH) / 2, BLOCK_WIDTH, BLOCK_HEIGHT);
-        block->setBrush(brush);
-        block->setPen(borderPen);
+        block->setPos((FIELD_WIDTH + FIELD_WIDTH_OFFSET) * col + (FIELD_WIDTH - BLOCK_WIDTH) / 2, (FIELD_HEIGHT + FIELD_HEIGHT_OFFSET) * row + (FIELD_WIDTH - BLOCK_WIDTH) / 2);
 
         board->addItem(block);
 
@@ -133,6 +136,7 @@ bool Game::verticalCheck(int player) {
         for (int j = 0; j < NUMBER_OF_COLUMNS; ++j) {
             if (board->fields[i][j]->getPlayer() == player && board->fields[i+1][j]->getPlayer() == player
                     && board->fields[i+2][j]->getPlayer() == player && board->fields[i+3][j]->getPlayer() == player) {
+                drawWinningLine(i, j, i+3, j);
                 return true;
             }
         }
@@ -145,6 +149,7 @@ bool Game::horizontalCheck(int player) {
         for (int j = 0; j < NUMBER_OF_COLUMNS - 3; ++j) {
             if (board->fields[i][j]->getPlayer() == player && board->fields[i][j+1]->getPlayer() == player
                     && board->fields[i][j+2]->getPlayer() == player && board->fields[i][j+3]->getPlayer() == player) {
+                drawWinningLine(i, j, i, j+3);
                 return true;
             }
         }
@@ -156,8 +161,10 @@ bool Game::ascendingDiagonalCheck(int player) {
     for (int i = 3; i < NUMBER_OF_ROWS; ++i) {
         for (int j = 0; j < NUMBER_OF_COLUMNS - 3; ++j) {
             if (board->fields[i][j]->getPlayer() == player && board->fields[i-1][j+1]->getPlayer() == player
-                    && board->fields[i-2][j+2]->getPlayer() == player && board->fields[i-3][j+3]->getPlayer() == player)
+                    && board->fields[i-2][j+2]->getPlayer() == player && board->fields[i-3][j+3]->getPlayer() == player) {
+                drawWinningLine(i, j, i-3, j+3);
                 return true;
+            }
         }
     }
     return false;
@@ -167,11 +174,23 @@ bool Game::descendingDiagonalCheck(int player) {
     for (int i = 3; i < NUMBER_OF_ROWS; ++i) {
         for (int j = 3; j < NUMBER_OF_COLUMNS; ++j) {
             if (board->fields[i][j]->getPlayer() == player && board->fields[i-1][j-1]->getPlayer() == player
-                    && board->fields[i-2][j-2]->getPlayer() == player && board->fields[i-3][j-3]->getPlayer() == player)
+                    && board->fields[i-2][j-2]->getPlayer() == player && board->fields[i-3][j-3]->getPlayer() == player) {
+                drawWinningLine(i, j, i-3, j-3);
                 return true;
+            }
         }
     }
     return false;
+}
+
+void Game::drawWinningLine(int y1, int x1, int y2, int x2) {
+    QGraphicsLineItem *line = new QGraphicsLineItem((FIELD_WIDTH + FIELD_WIDTH_OFFSET) * x1 + FIELD_WIDTH / 2, (FIELD_HEIGHT + FIELD_HEIGHT_OFFSET) * y1 + FIELD_HEIGHT / 2,
+                                                    (FIELD_WIDTH + FIELD_WIDTH_OFFSET) * x2 + FIELD_WIDTH / 2, (FIELD_HEIGHT + FIELD_HEIGHT_OFFSET) * y2 + FIELD_HEIGHT / 2);
+    QPen pen;
+    pen.setWidth(10);
+    pen.setColor(Qt::darkYellow);
+    line->setPen(pen);
+    board->addItem(line);
 }
 
 bool Game::hasGameBeenDrawn(){

@@ -29,6 +29,7 @@ private:
     bool hasGameFinished(int);
     bool hasGameBeenDrawn();
     void setFieldAvailability(int, int);
+    void drawWinningLine(int, int, int, int);
 
 signals:
     void gameEnded(int);
