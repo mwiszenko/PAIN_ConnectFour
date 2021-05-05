@@ -14,6 +14,7 @@ ICON = img/logo.icns
 SOURCES += \
     board.cpp \
     boardpanel.cpp \
+    creditsdialog.cpp \
     field.cpp \
     game.cpp \
     gamefinishdialog.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     board.h \
     boardpanel.h \
     constants.h \
+    creditsdialog.h \
     field.h \
     game.h \
     gamefinishdialog.h \
@@ -32,6 +34,7 @@ HEADERS += \
     settingsdialog.h
 
 FORMS += \
+    creditsdialog.ui \
     gamefinishdialog.ui \
     mainwindow.ui \
     settingsdialog.ui

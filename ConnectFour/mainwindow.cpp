@@ -12,16 +12,18 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    settings = new SettingsDialog();
+    settingsDialog = new SettingsDialog();
 
     gameFinishDialog = new GameFinishDialog();
+
+    creditsDialog = new CreditsDialog();
 
     setupActions();
 
     setupGame();
 
-    connect(settings, &SettingsDialog::settingsChanged, game, &Game::settingsChanged);
-    connect(settings, &SettingsDialog::settingsChanged, this, &MainWindow::settingsChanged);
+    connect(settingsDialog, &SettingsDialog::settingsChanged, game, &Game::settingsChanged);
+    connect(settingsDialog, &SettingsDialog::settingsChanged, this, &MainWindow::settingsChanged);
 
     ui->labelPlayerOneImage->setPixmap(QPixmap(":/img/red_player.png"));
     ui->labelPlayerOneName->setText("Player 1");
@@ -40,6 +42,7 @@ void MainWindow::setupActions()
     connect(ui->actionNewGame, SIGNAL(triggered()), this, SLOT(newGame()));
     connect(ui->actionSettings, SIGNAL(triggered()), this, SLOT(showSettings()));
     connect(ui->actionExit, SIGNAL(triggered()), qApp, SLOT(quit()));
+    connect(ui->actionCredits, SIGNAL(triggered()), this, SLOT(showCredits()));
 }
 
 void MainWindow::setupGame() {
@@ -54,7 +57,12 @@ void MainWindow::setupGame() {
 
 void MainWindow::showSettings()
 {
-    settings->show();
+    settingsDialog->show();
+}
+
+void MainWindow::showCredits()
+{
+    creditsDialog->show();
 }
 
 void MainWindow::newGame() {

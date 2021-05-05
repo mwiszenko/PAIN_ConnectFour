@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include "settingsdialog.h"
 #include "gamefinishdialog.h"
+#include "creditsdialog.h"
 #include "game.h"
 #include "boardpanel.h"
 
@@ -24,6 +25,7 @@ private slots:
     void setupActions();
     void setupGame();
     void showSettings();
+    void showCredits();
     void newGame();
     void processGameWon(int);
     void settingsChanged(QStringList);
@@ -31,8 +33,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    SettingsDialog *settings;
+    SettingsDialog *settingsDialog;
     GameFinishDialog* gameFinishDialog;
+    CreditsDialog* creditsDialog;
     BoardPanel *boardPanel;
     Game* game;
 };
