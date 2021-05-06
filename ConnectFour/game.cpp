@@ -42,9 +42,9 @@ void Game::processClick(int col, int row) {
 
     QGraphicsPixmapItem * block;
     if(currentPlayer == 1) {
-        block = new QGraphicsPixmapItem(QPixmap(":/img/red_block.png").scaled(BLOCK_WIDTH, BLOCK_HEIGHT, Qt::KeepAspectRatio));
+        block = new QGraphicsPixmapItem(QPixmap(":/img/red_block.png").scaled(BLOCK_WIDTH, BLOCK_HEIGHT, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     } else {
-        block = new QGraphicsPixmapItem(QPixmap(":/img/blue_block.png").scaled(BLOCK_WIDTH, BLOCK_HEIGHT, Qt::KeepAspectRatio));
+        block = new QGraphicsPixmapItem(QPixmap(":/img/blue_block.png").scaled(BLOCK_WIDTH, BLOCK_HEIGHT, Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 
     if(animationSpeed != INSTANT_ANIMATION_SPEED) {
