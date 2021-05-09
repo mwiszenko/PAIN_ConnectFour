@@ -281,19 +281,107 @@ Window {
         title: "Credits"
 
         GridLayout {
-            width: parent.width
-            rows: 5
             columns: 2
+            width: parent.width
 
             Label {
-                text: app.playerOneName
+                text: "Application"
                 color: "white"
                 horizontalAlignment: Label.AlignLeft
                 Layout.fillWidth: true
             }
 
             Label {
-                text: "Game Over!\nYou did your best!"
+                text: "Connect Four"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "Version"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "1.0"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "Developer"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "Michał Wiszenko"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "Logo"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "flaticon"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            MenuSeparator {
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "Icons"
+                color: "white"
+                horizontalAlignment: Label.AlignLeft
+                Layout.fillWidth: true
+            }
+
+            Label {
+                text: "icons DB"
+                color: "white"
                 horizontalAlignment: Label.AlignLeft
                 Layout.fillWidth: true
             }
