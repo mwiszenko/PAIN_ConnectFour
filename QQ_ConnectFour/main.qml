@@ -245,6 +245,8 @@ Window {
             TextInput {
                 id: playerOneNameTextInput
                 text: app.playerOneName
+                color: "red"
+                selectionColor: "green"
                 Layout.fillWidth: true
             }
 
@@ -258,6 +260,7 @@ Window {
             TextInput {
                 id: playerTwoNameTextInput
                 text: app.playerTwoName
+                color: "blue"
                 Layout.fillWidth: true
             }
         }
