@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>img/blue_block.png</file>
+        <file>img/blue_player.png</file>
+        <file>img/logo.icns</file>
+        <file>img/red_block.png</file>
+        <file>img/red_player.png</file>
+        <file>logic.js</file>
+        <file>img/arrow_left.png</file>
+        <file>img/arrow_right.png</file>
+        <file>img/dash.png</file>
+    </qresource>
+</RCC>
