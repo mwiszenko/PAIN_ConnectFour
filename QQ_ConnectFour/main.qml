@@ -266,15 +266,13 @@ Window {
     Dialog {
         id: gameFinishedDialog
         title: "Game Finished"
+        property string message: ""
 
-        ColumnLayout {
-            width: parent.width
-
-            Label {
-                text: "Game Over!\nYou did your best!"
-                horizontalAlignment: Label.AlignHCenter
-                Layout.fillWidth: true
-            }
+        Label {
+            text: gameFinishedDialog.message
+            color: "white"
+            horizontalAlignment: Text.AlignLeft
+            Layout.fillWidth: true
         }
     }
 

@@ -11,16 +11,19 @@ function processClick(idx) {
         if(gameStatus === 0) {
             setAllFieldsUnavailable()
             arrowImg = "img/dash.png"
+            gameFinishedDialog.message = "It's a draw..."
             gameFinishedDialog.open()
             return
         } else if(gameStatus === 1) {
             setAllFieldsUnavailable()
             arrowImg = "img/dash.png"
+            gameFinishedDialog.message = playerOneName + " won!"
             gameFinishedDialog.open()
             return
         } else if(gameStatus === 2) {
             setAllFieldsUnavailable()
             arrowImg = "img/dash.png"
+            gameFinishedDialog.message = playerTwoName + " won!"
             gameFinishedDialog.open()
             return
         }
