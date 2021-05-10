@@ -1,6 +1,6 @@
 # Connect Four
 
-Popular two-player board game developed for MacOS using Qt5 and C++.
+Popular two-player board game developed for MacOS using Qt5, QtQuick and C++.
 
 ## Meta
 
