@@ -119,5 +119,6 @@ function startNew() {
         fields.itemAt(i).player = 0
         fields.itemAt(i).blockImg = ""
     }
+    currPlayer = 1
     arrowImg = "img/arrow_left.png"
 }
